@@ -1,0 +1,12 @@
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\bin\Debug\net8.0\BarberBoss.Exception.deps.json
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\bin\Debug\net8.0\BarberBoss.Exception.dll
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\bin\Debug\net8.0\BarberBoss.Exception.pdb
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\obj\Debug\net8.0\BarberBoss.Exception.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\obj\Debug\net8.0\BarberBoss.Exception.AssemblyInfoInputs.cache
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\obj\Debug\net8.0\BarberBoss.Exception.AssemblyInfo.cs
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\obj\Debug\net8.0\BarberBoss.Exception.csproj.CoreCompileInputs.cache
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\obj\Debug\net8.0\BarberBoss.Exception.sourcelink.json
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\obj\Debug\net8.0\BarberBoss.Exception.dll
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\obj\Debug\net8.0\refint\BarberBoss.Exception.dll
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\obj\Debug\net8.0\BarberBoss.Exception.pdb
+C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Exception\obj\Debug\net8.0\ref\BarberBoss.Exception.dll

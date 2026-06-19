@@ -1,17 +1,30 @@
-﻿using BarberBoss.Communication.Requests.Billing;
+using BarberBoss.Communication.Requests.Billing;
 using BarberBoss.Communication.Responses.Billing;
+using BillingEntity = BarberBoss.Domain.Entities.Billing;
+using BarberBoss.Domain.Repositories.Billings;
 using System.Net.Http.Headers;
+using AutoMapper;
 
 namespace BarberBoss.Application.UseCases.Billing.Register;
 
 public class RegisterBillingUseCase : IRegisterBillingUseCase
 {
+    private readonly IBillingWriteOnlyRepository _repository;
+    private readonly IMapper _mapper;
+    public RegisterBillingUseCase(
+        IBillingWriteOnlyRepository repository,
+        IMapper mapper
+        )
+    {
+        _repository = repository;
+        _mapper = mapper;
+    }
 
     public async Task<ResponseRegisteredBillingJson> Execute(RequestBillingJson request)
     {
         Validate(request);
 
-        var entity = _mapper.Map<Billing>(request);
+        var entity = _mapper.Map<BillingEntity>(request);
 
         await _repository.Add(entity);
 

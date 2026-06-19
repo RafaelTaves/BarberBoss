@@ -2,6 +2,7 @@ using BarberBoss.Communication.Requests.Billing;
 using BarberBoss.Communication.Responses.Billing;
 using BarberBoss.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;
+using BarberBoss.Application.UseCases.Billing.Register;
 
 namespace BarberBoss.Api.Controllers;
 
