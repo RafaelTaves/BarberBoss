@@ -1,6 +1,0 @@
-C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Application\obj\Debug\net8.0\BarberBoss.Application.csproj.AssemblyReference.cache
-C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Application\obj\Debug\net8.0\BarberBoss.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Application\obj\Debug\net8.0\BarberBoss.Application.AssemblyInfoInputs.cache
-C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Application\obj\Debug\net8.0\BarberBoss.Application.AssemblyInfo.cs
-C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Application\obj\Debug\net8.0\BarberBoss.Application.csproj.CoreCompileInputs.cache
-C:\Users\rafae\Pessoal\Programacao\BarberBoss\src\BarberBoss.Application\obj\Debug\net8.0\BarberBoss.Application.sourcelink.json
