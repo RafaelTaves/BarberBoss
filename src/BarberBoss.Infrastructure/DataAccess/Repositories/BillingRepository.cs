@@ -12,10 +12,8 @@ internal class BillingRepository : IBillingReadOnlyRepository, IBillingUpdateOnl
         _dbContext = dbContext;
     }
 
-    public void Add(Billing billing)
+    public async Task Add(Billing billing)
     {
-        _dbContext.Billings.Add(billing);
-
-        _dbContext.SaveChanges();
+        await _dbContext.Billings.AddAsync(billing);
     }
 }

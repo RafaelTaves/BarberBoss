@@ -1,6 +1,7 @@
 using BarberBoss.Communication.Requests.Billing;
 using BarberBoss.Communication.Responses.Billing;
 using BillingEntity = BarberBoss.Domain.Entities.Billing;
+using BarberBoss.Domain.Repositories;
 using BarberBoss.Domain.Repositories.Billings;
 using System.Net.Http.Headers;
 using AutoMapper;
@@ -10,13 +11,16 @@ namespace BarberBoss.Application.UseCases.Billing.Register;
 public class RegisterBillingUseCase : IRegisterBillingUseCase
 {
     private readonly IBillingWriteOnlyRepository _repository;
+    private readonly IUnitOfWork _unityOfWork;
     private readonly IMapper _mapper;
     public RegisterBillingUseCase(
         IBillingWriteOnlyRepository repository,
+        IUnitOfWork unityOfWork,
         IMapper mapper
         )
     {
         _repository = repository;
+        _unityOfWork = unityOfWork;
         _mapper = mapper;
     }
 
