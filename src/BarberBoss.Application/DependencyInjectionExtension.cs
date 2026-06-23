@@ -1,5 +1,7 @@
-﻿using BarberBoss.Application.AutoMapper;
+using BarberBoss.Application.AutoMapper;
+using BarberBoss.Application.UseCases.Billing.Delete;
 using BarberBoss.Application.UseCases.Billing.GetAll;
+using BarberBoss.Application.UseCases.Billing.GetById;
 using BarberBoss.Application.UseCases.Billing.Register;
 using BarberBoss.Application.UseCases.Billing.Update;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,17 +14,19 @@ public static class DependencyInjectionExtension
     {
         AddAutoMapper(services);
         AddUseCases(services);
-        
     }
 
     private static void AddAutoMapper(IServiceCollection services)
     {
         services.AddAutoMapper(typeof(AutoMapping));
     }
+
     private static void AddUseCases(IServiceCollection services)
     {
         services.AddScoped<IRegisterBillingUseCase, RegisterBillingUseCase>();
         services.AddScoped<IUpdateBillingUseCase, UpdateBillingUseCase>();
         services.AddScoped<IGetAllBillingsUseCase, GetAllBillingsJson>();
+        services.AddScoped<IGetBillingByIdUseCase, GetBillingByIdUseCase>();
+        services.AddScoped<IDeleteBillingUseCase, DeleteBillingUseCase>();
     }
 }

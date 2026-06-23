@@ -132,6 +132,9 @@
   <data name="BILLING_DATE_REQUIRED" xml:space="preserve">
     <value>A data do faturamento é obrigatória.</value>
   </data>
+  <data name="BILLING_NOT_FOUND" xml:space="preserve">
+    <value>Faturamento não encontrado.</value>
+  </data>
   <data name="BILLING_STATUS_INVALID" xml:space="preserve">
     <value>O status do faturamento é inválido.</value>
   </data>

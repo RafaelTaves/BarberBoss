@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using BarberBoss.Communication.Requests.Billing;
 using BarberBoss.Communication.Responses.Billing;
 using BarberBoss.Domain.Entities;
@@ -20,6 +20,8 @@ public class AutoMapping : Profile
 
     private void EntityToResponse()
     {
+        CreateMap<Billing, ResponseBillingJson>();
         CreateMap<Billing, ResponseRegisteredBillingJson>();
+        CreateMap<Billing, ResponseShortBillingJson>();
     }
 }

@@ -16,6 +16,7 @@ public static class ResourceErrorMessages
     public static string BARBER_NAME_LENGTH => GetString(nameof(BARBER_NAME_LENGTH));
     public static string BARBER_NAME_REQUIRED => GetString(nameof(BARBER_NAME_REQUIRED));
     public static string BILLING_DATE_REQUIRED => GetString(nameof(BILLING_DATE_REQUIRED));
+    public static string BILLING_NOT_FOUND => GetString(nameof(BILLING_NOT_FOUND));
     public static string BILLING_STATUS_INVALID => GetString(nameof(BILLING_STATUS_INVALID));
     public static string BILLING_STATUS_REQUIRED => GetString(nameof(BILLING_STATUS_REQUIRED));
     public static string CANCELED_BILLING_AMOUNT_MUST_BE_ZERO => GetString(nameof(CANCELED_BILLING_AMOUNT_MUST_BE_ZERO));

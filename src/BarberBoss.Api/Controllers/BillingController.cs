@@ -1,4 +1,6 @@
+using BarberBoss.Application.UseCases.Billing.Delete;
 using BarberBoss.Application.UseCases.Billing.GetAll;
+using BarberBoss.Application.UseCases.Billing.GetById;
 using BarberBoss.Application.UseCases.Billing.Register;
 using BarberBoss.Application.UseCases.Billing.Update;
 using BarberBoss.Communication.Requests.Billing;
@@ -19,28 +21,43 @@ public class BillingController : ControllerBase
         [FromServices] IRegisterBillingUseCase useCase,
         [FromBody] RequestBillingJson request)
     {
-        var response = useCase.Execute(request);
+        var response = await useCase.Execute(request);
 
         return Created(string.Empty, response);
     }
 
     [HttpGet]
-    [ProducesResponseType(typeof(ResponseRegisteredBillingJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ResponseBillingsJson), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> GetAllBillings(
         [FromServices] IGetAllBillingsUseCase useCase)
     {
         var response = await useCase.Execute();
 
-        if(response.Billings.Count != 0 )
-        return Ok(response);
+        if (response.Billings.Count != 0)
+        {
+            return Ok(response);
+        }
 
         return NoContent();
     }
 
+    [HttpGet]
+    [Route("{id}")]
+    [ProducesResponseType(typeof(ResponseBillingJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetBillingById(
+        [FromServices] IGetBillingByIdUseCase useCase,
+        [FromRoute] Guid id)
+    {
+        var response = await useCase.Execute(id);
+
+        return Ok(response);
+    }
+
     [HttpPut]
     [Route("{id}")]
-    [ProducesResponseType(typeof(ResponseRegisteredBillingJson), StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpdateBilling(
@@ -49,6 +66,19 @@ public class BillingController : ControllerBase
         [FromBody] RequestBillingJson request)
     {
         await useCase.Execute(id, request);
+
+        return NoContent();
+    }
+
+    [HttpDelete]
+    [Route("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteBilling(
+        [FromServices] IDeleteBillingUseCase useCase,
+        [FromRoute] Guid id)
+    {
+        await useCase.Execute(id);
 
         return NoContent();
     }
