@@ -120,14 +120,56 @@
   <data name="AMOUNT_MUST_BE_GREATER_THAN_ZERO" xml:space="preserve">
     <value>O valor deve ser maior que zero.</value>
   </data>
+  <data name="AMOUNT_MUST_BE_GREATER_THAN_OR_EQUAL_TO_ZERO" xml:space="preserve">
+    <value>O valor deve ser maior ou igual a zero.</value>
+  </data>
+  <data name="BARBER_NAME_LENGTH" xml:space="preserve">
+    <value>O nome do barbeiro deve ter entre 2 e 80 caracteres.</value>
+  </data>
+  <data name="BARBER_NAME_REQUIRED" xml:space="preserve">
+    <value>O nome do barbeiro é obrigatório.</value>
+  </data>
+  <data name="BILLING_DATE_REQUIRED" xml:space="preserve">
+    <value>A data do faturamento é obrigatória.</value>
+  </data>
+  <data name="BILLING_STATUS_INVALID" xml:space="preserve">
+    <value>O status do faturamento é inválido.</value>
+  </data>
+  <data name="BILLING_STATUS_REQUIRED" xml:space="preserve">
+    <value>O status do faturamento é obrigatório.</value>
+  </data>
+  <data name="CANCELED_BILLING_AMOUNT_MUST_BE_ZERO" xml:space="preserve">
+    <value>O valor deve ser zero quando o status for cancelado.</value>
+  </data>
+  <data name="CLIENT_NAME_LENGTH" xml:space="preserve">
+    <value>O nome do cliente deve ter entre 2 e 120 caracteres.</value>
+  </data>
+  <data name="CLIENT_NAME_REQUIRED" xml:space="preserve">
+    <value>O nome do cliente é obrigatório.</value>
+  </data>
   <data name="EXPENSES_CANNOT_FOR_THE_FUTURE" xml:space="preserve">
     <value>As despesas não podem ser para o futuro.</value>
   </data>
   <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
     <value>Despesa não encontrada.</value>
   </data>
+  <data name="NOTES_MAX_LENGTH" xml:space="preserve">
+    <value>As observações devem ter no máximo 500 caracteres.</value>
+  </data>
+  <data name="PAYMENT_METHOD_INVALID" xml:space="preserve">
+    <value>A forma de pagamento é inválida.</value>
+  </data>
+  <data name="PAYMENT_METHOD_REQUIRED" xml:space="preserve">
+    <value>A forma de pagamento é obrigatória.</value>
+  </data>
   <data name="PAYMENT_TYPE_INVALID" xml:space="preserve">
     <value>O tipo de pagamento não é valido</value>
+  </data>
+  <data name="SERVICE_NAME_LENGTH" xml:space="preserve">
+    <value>O nome do serviço deve ter entre 2 e 120 caracteres.</value>
+  </data>
+  <data name="SERVICE_NAME_REQUIRED" xml:space="preserve">
+    <value>O nome do serviço é obrigatório.</value>
   </data>
   <data name="TITLE_REQUIRED" xml:space="preserve">
     <value>O título é obrigatório</value>

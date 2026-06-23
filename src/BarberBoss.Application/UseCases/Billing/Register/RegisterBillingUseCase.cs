@@ -5,6 +5,7 @@ using BarberBoss.Domain.Repositories;
 using BarberBoss.Domain.Repositories.Billings;
 using System.Net.Http.Headers;
 using AutoMapper;
+using BarberBoss.Exception.ExceptionsBase;
 
 namespace BarberBoss.Application.UseCases.Billing.Register;
 
