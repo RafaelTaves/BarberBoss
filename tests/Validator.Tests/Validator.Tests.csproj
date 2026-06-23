@@ -17,6 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\BarberBoss.Application\BarberBoss.Application.csproj" />
+    <ProjectReference Include="..\..\src\BarberBoss.Domain\BarberBoss.Domain.csproj" />
+    <ProjectReference Include="..\..\src\BarberBoss.Exception\BarberBoss.Exception.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 
