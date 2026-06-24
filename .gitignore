@@ -50,6 +50,8 @@ project.lock.json
 .nuget/
 
 # ASP.NET / local configuration
+src/BarberBoss.Api/appsettings.json
+src/BarberBoss.Api/appsettings.Development.json
 appsettings.Local.json
 appsettings.*.local.json
 secrets.json
