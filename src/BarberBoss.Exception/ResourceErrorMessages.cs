@@ -22,6 +22,7 @@ public static class ResourceErrorMessages
     public static string CANCELED_BILLING_AMOUNT_MUST_BE_ZERO => GetString(nameof(CANCELED_BILLING_AMOUNT_MUST_BE_ZERO));
     public static string CLIENT_NAME_LENGTH => GetString(nameof(CLIENT_NAME_LENGTH));
     public static string CLIENT_NAME_REQUIRED => GetString(nameof(CLIENT_NAME_REQUIRED));
+    public static string EMAIL_ALREADY_EXISTS => GetString(nameof(EMAIL_ALREADY_EXISTS));
     public static string EMAIL_INVALID => GetString(nameof(EMAIL_INVALID));
     public static string EMAIL_REQUIRED => GetString(nameof(EMAIL_REQUIRED));
     public static string EXPENSES_CANNOT_FOR_THE_FUTURE => GetString(nameof(EXPENSES_CANNOT_FOR_THE_FUTURE));
@@ -30,8 +31,12 @@ public static class ResourceErrorMessages
     public static string PAYMENT_METHOD_INVALID => GetString(nameof(PAYMENT_METHOD_INVALID));
     public static string PAYMENT_METHOD_REQUIRED => GetString(nameof(PAYMENT_METHOD_REQUIRED));
     public static string PAYMENT_TYPE_INVALID => GetString(nameof(PAYMENT_TYPE_INVALID));
+    public static string PASSWORD_LOWERCASE_LETTER => GetString(nameof(PASSWORD_LOWERCASE_LETTER));
     public static string PASSWORD_MIN_LENGTH => GetString(nameof(PASSWORD_MIN_LENGTH));
+    public static string PASSWORD_NUMBER => GetString(nameof(PASSWORD_NUMBER));
     public static string PASSWORD_REQUIRED => GetString(nameof(PASSWORD_REQUIRED));
+    public static string PASSWORD_SPECIAL_CHARACTER => GetString(nameof(PASSWORD_SPECIAL_CHARACTER));
+    public static string PASSWORD_UPPERCASE_LETTER => GetString(nameof(PASSWORD_UPPERCASE_LETTER));
     public static string SERVICE_NAME_LENGTH => GetString(nameof(SERVICE_NAME_LENGTH));
     public static string SERVICE_NAME_REQUIRED => GetString(nameof(SERVICE_NAME_REQUIRED));
     public static string TITLE_REQUIRED => GetString(nameof(TITLE_REQUIRED));

@@ -5,50 +5,63 @@ using BarberBoss.Communication.Responses.User;
 using BarberBoss.Domain.Enums;
 using BarberBoss.Domain.Repositories;
 using BarberBoss.Domain.Repositories.Users;
+using BarberBoss.Domain.Security.Cryptography;
+using BarberBoss.Exception;
 using BarberBoss.Exception.ExceptionsBase;
+using FluentValidation.Results;
 using UserEntity = BarberBoss.Domain.Entities.User;
 
 namespace BarberBoss.Application.UseCases.User.Register;
 
 public class RegisterUserUseCase : IRegisterUserUseCase
 {
-    private readonly IUserWriteOnlyRepository _repository;
+    private readonly IUserWriteOnlyRepository _userWriteOnlyrepository;
+    private readonly IUserReadOnlyRepository _userReadOnlyRepository;
     private readonly IUnitOfWork _unityOfWork;
     private readonly IMapper _mapper;
+    private readonly IPasswordEncripter _passwordEncripter;
 
     public RegisterUserUseCase(
-        IUserWriteOnlyRepository repository,
+        IUserWriteOnlyRepository userWriteOnlyrepository,
+        IUserReadOnlyRepository userReadOnlyRepository,
         IUnitOfWork unityOfWork,
-        IMapper mapper)
+        IMapper mapper,
+        IPasswordEncripter passwordEncripter)
     {
-        _repository = repository;
+        _userWriteOnlyrepository = userWriteOnlyrepository;
+        _userReadOnlyRepository = userReadOnlyRepository;
         _unityOfWork = unityOfWork;
         _mapper = mapper;
+        _passwordEncripter = passwordEncripter;
     }
 
     public async Task<ResponseRegisteredUserJson> Execute(RequestRegisteredUserJson request)
     {
-        Validate(request);
+        await Validate(request);
 
         var entity = _mapper.Map<UserEntity>(request);
-        entity.PasswordHash = HashPassword(request.Password);
+        entity.PasswordHash = _passwordEncripter.Encrypt(request.Password);
         entity.role = UserRole.Client;
         entity.UserIdentifier = Guid.NewGuid();
         entity.CreatedAt = DateTime.UtcNow;
         entity.UpdatedAt = DateTime.UtcNow;
 
-        await _repository.Add(entity);
+        await _userWriteOnlyrepository.Add(entity);
 
         await _unityOfWork.Commit();
 
         return _mapper.Map<ResponseRegisteredUserJson>(entity);
     }
 
-    private static void Validate(RequestRegisteredUserJson request)
+    private async Task Validate(RequestRegisteredUserJson request)
     {
-        var validator = new RegisterUserValidator();
+        var result = new RegisterUserValidator().Validate(request);
 
-        var result = validator.Validate(request);
+        var emailExist = await _userReadOnlyRepository.ExistActiveUserWithEmail(request.Email);
+        if (emailExist)
+        {
+            result.Errors.Add(new ValidationFailure(string.Empty, ResourceErrorMessages.EMAIL_ALREADY_EXISTS));
+        }
 
         if (result.IsValid == false)
         {
@@ -58,16 +71,5 @@ public class RegisterUserUseCase : IRegisterUserUseCase
         }
     }
 
-    private static string HashPassword(string password)
-    {
-        var salt = RandomNumberGenerator.GetBytes(16);
-        var hash = Rfc2898DeriveBytes.Pbkdf2(
-            password,
-            salt,
-            100000,
-            HashAlgorithmName.SHA256,
-            32);
-
-        return $"{Convert.ToBase64String(salt)}.{Convert.ToBase64String(hash)}";
-    }
+    
 }
