@@ -13,6 +13,8 @@ public class Billing
     public  BillingPaymentMethod PaymentMethod { get; set; }
     public BillingStatus Status { get; set; } 
     public string Notes { get; set; } = string.Empty;
+    public Guid UserId { get; set; }
+    public User User { get; set; } = default!;
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 }

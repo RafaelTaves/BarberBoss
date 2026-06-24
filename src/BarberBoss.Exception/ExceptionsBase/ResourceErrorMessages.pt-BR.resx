@@ -150,6 +150,12 @@
   <data name="CLIENT_NAME_REQUIRED" xml:space="preserve">
     <value>O nome do cliente é obrigatório.</value>
   </data>
+  <data name="EMAIL_INVALID" xml:space="preserve">
+    <value>O e-mail informado é inválido.</value>
+  </data>
+  <data name="EMAIL_REQUIRED" xml:space="preserve">
+    <value>O e-mail é obrigatório.</value>
+  </data>
   <data name="EXPENSES_CANNOT_FOR_THE_FUTURE" xml:space="preserve">
     <value>As despesas não podem ser para o futuro.</value>
   </data>
@@ -168,6 +174,12 @@
   <data name="PAYMENT_TYPE_INVALID" xml:space="preserve">
     <value>O tipo de pagamento não é valido</value>
   </data>
+  <data name="PASSWORD_MIN_LENGTH" xml:space="preserve">
+    <value>A senha deve ter no mínimo 6 caracteres.</value>
+  </data>
+  <data name="PASSWORD_REQUIRED" xml:space="preserve">
+    <value>A senha é obrigatória.</value>
+  </data>
   <data name="SERVICE_NAME_LENGTH" xml:space="preserve">
     <value>O nome do serviço deve ter entre 2 e 120 caracteres.</value>
   </data>
@@ -179,5 +191,11 @@
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erro desconhecido.</value>
+  </data>
+  <data name="USER_NAME_LENGTH" xml:space="preserve">
+    <value>O nome deve ter entre 2 e 120 caracteres.</value>
+  </data>
+  <data name="USER_NAME_REQUIRED" xml:space="preserve">
+    <value>O nome é obrigatório.</value>
   </data>
 </root>

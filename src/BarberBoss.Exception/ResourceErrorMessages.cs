@@ -22,16 +22,22 @@ public static class ResourceErrorMessages
     public static string CANCELED_BILLING_AMOUNT_MUST_BE_ZERO => GetString(nameof(CANCELED_BILLING_AMOUNT_MUST_BE_ZERO));
     public static string CLIENT_NAME_LENGTH => GetString(nameof(CLIENT_NAME_LENGTH));
     public static string CLIENT_NAME_REQUIRED => GetString(nameof(CLIENT_NAME_REQUIRED));
+    public static string EMAIL_INVALID => GetString(nameof(EMAIL_INVALID));
+    public static string EMAIL_REQUIRED => GetString(nameof(EMAIL_REQUIRED));
     public static string EXPENSES_CANNOT_FOR_THE_FUTURE => GetString(nameof(EXPENSES_CANNOT_FOR_THE_FUTURE));
     public static string EXPENSE_NOT_FOUND => GetString(nameof(EXPENSE_NOT_FOUND));
     public static string NOTES_MAX_LENGTH => GetString(nameof(NOTES_MAX_LENGTH));
     public static string PAYMENT_METHOD_INVALID => GetString(nameof(PAYMENT_METHOD_INVALID));
     public static string PAYMENT_METHOD_REQUIRED => GetString(nameof(PAYMENT_METHOD_REQUIRED));
     public static string PAYMENT_TYPE_INVALID => GetString(nameof(PAYMENT_TYPE_INVALID));
+    public static string PASSWORD_MIN_LENGTH => GetString(nameof(PASSWORD_MIN_LENGTH));
+    public static string PASSWORD_REQUIRED => GetString(nameof(PASSWORD_REQUIRED));
     public static string SERVICE_NAME_LENGTH => GetString(nameof(SERVICE_NAME_LENGTH));
     public static string SERVICE_NAME_REQUIRED => GetString(nameof(SERVICE_NAME_REQUIRED));
     public static string TITLE_REQUIRED => GetString(nameof(TITLE_REQUIRED));
     public static string UNKNOWN_ERROR => GetString(nameof(UNKNOWN_ERROR));
+    public static string USER_NAME_LENGTH => GetString(nameof(USER_NAME_LENGTH));
+    public static string USER_NAME_REQUIRED => GetString(nameof(USER_NAME_REQUIRED));
 
     private static string GetString(string name)
     {

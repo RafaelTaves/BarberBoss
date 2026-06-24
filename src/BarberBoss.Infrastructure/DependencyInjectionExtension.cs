@@ -1,5 +1,6 @@
 using BarberBoss.Domain.Repositories;
 using BarberBoss.Domain.Repositories.Billings;
+using BarberBoss.Domain.Repositories.Users;
 using BarberBoss.Infrastructure.DataAccess;
 using BarberBoss.Infrastructure.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -22,15 +23,13 @@ public static class DependencyInjectionExtension
         services.AddScoped<IBillingReadOnlyRepository, BillingRepository>();
         services.AddScoped<IBillingWriteOnlyRepository, BillingRepository>();
         services.AddScoped<IBillingUpdateOnlyRepository, BillingRepository>();
+        services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
     }
 
     private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("Connection");
 
-        var version = new Version(8, 0, 35);
-        var serverVersion = new MySqlServerVersion(version);
-
-        services.AddDbContext<BarberBossDbContext>(config => config.UseMySql(connectionString, serverVersion));
+        services.AddDbContext<BarberBossDbContext>(config => config.UseNpgsql(connectionString));
     }
 }
