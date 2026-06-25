@@ -28,6 +28,9 @@ public class AutoMapping : Profile
         CreateMap<Billing, ResponseRegisteredBillingJson>();
         CreateMap<Billing, ResponseShortBillingJson>();
         CreateMap<User, ResponseRegisteredUserJson>()
-            .ForMember(response => response.Token, config => config.MapFrom(_ => string.Empty));
+            .ForMember(response => response.Token, config => config.MapFrom((_, _, _, context) =>
+                context.TryGetItems(out var items) && items.TryGetValue("Token", out var token)
+                    ? token?.ToString()
+                    : string.Empty));
     }
 }

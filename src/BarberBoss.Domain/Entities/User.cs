@@ -12,7 +12,7 @@ public class User
 
     public string PasswordHash { get; set; } = string.Empty;
 
-    public string role { get; set; } = UserRole.Client;
+    public string Role { get; set; } = UserRole.Client;
 
     public DateTime CreatedAt { get; set; }
 
