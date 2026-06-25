@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using AutoMapper;
 using BarberBoss.Communication.Requests.User;
 using BarberBoss.Communication.Responses.User;
@@ -39,18 +38,17 @@ public class RegisterUserUseCase : IRegisterUserUseCase
     {
         await Validate(request);
 
-        var entity = _mapper.Map<UserEntity>(request);
-        entity.PasswordHash = _passwordEncripter.Encrypt(request.Password);
-        entity.role = UserRole.Client;
-        entity.UserIdentifier = Guid.NewGuid();
-        entity.CreatedAt = DateTime.UtcNow;
-        entity.UpdatedAt = DateTime.UtcNow;
+        var user = _mapper.Map<UserEntity>(request);
+        user.PasswordHash = _passwordEncripter.Encrypt(request.Password);
+        user.Id = Guid.NewGuid();
+        user.CreatedAt = DateTime.UtcNow;
+        user.UpdatedAt = DateTime.UtcNow;
 
-        await _userWriteOnlyrepository.Add(entity);
+        await _userWriteOnlyrepository.Add(user);
 
         await _unityOfWork.Commit();
 
-        return _mapper.Map<ResponseRegisteredUserJson>(entity);
+        return _mapper.Map<ResponseRegisteredUserJson>(user);
     }
 
     private async Task Validate(RequestRegisteredUserJson request)

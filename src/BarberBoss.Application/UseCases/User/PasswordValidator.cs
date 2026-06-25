@@ -12,7 +12,7 @@ public partial class PasswordValidator<T> : PropertyValidator<T, string>
 
     protected override string GetDefaultMessageTemplate(string errorCode)
     {
-        return $"{ERROR_MESSAGE_KEY}";
+        return $"{{{ERROR_MESSAGE_KEY}}}";
     }
 
     public override bool IsValid(ValidationContext<T> context, string password)
@@ -23,7 +23,7 @@ public partial class PasswordValidator<T> : PropertyValidator<T, string>
             return false;
         }
 
-        if (password.Length < 8)
+        if (password.Length < 6)
         {
             context.MessageFormatter.AppendArgument(ERROR_MESSAGE_KEY, ResourceErrorMessages.PASSWORD_MIN_LENGTH);
             return false;

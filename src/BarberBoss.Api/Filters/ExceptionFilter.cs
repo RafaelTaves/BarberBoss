@@ -1,5 +1,4 @@
 ﻿using BarberBoss.Communication.Responses;
-using BarberBoss.Communication.Responses;
 using BarberBoss.Exception;
 using BarberBoss.Exception.ExceptionsBase;
 using Microsoft.AspNetCore.Mvc;
