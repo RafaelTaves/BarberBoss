@@ -6,12 +6,14 @@ using BarberBoss.Application.UseCases.Billing.Update;
 using BarberBoss.Communication.Requests.Billing;
 using BarberBoss.Communication.Responses;
 using BarberBoss.Communication.Responses.Billing;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BarberBoss.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class BillingController : ControllerBase
 {
     [HttpPost]
