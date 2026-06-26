@@ -27,6 +27,7 @@ public static class ResourceErrorMessages
     public static string EMAIL_REQUIRED => GetString(nameof(EMAIL_REQUIRED));
     public static string EXPENSES_CANNOT_FOR_THE_FUTURE => GetString(nameof(EXPENSES_CANNOT_FOR_THE_FUTURE));
     public static string EXPENSE_NOT_FOUND => GetString(nameof(EXPENSE_NOT_FOUND));
+    public static string INVALID_LOGIN => GetString(nameof(INVALID_LOGIN));
     public static string NOTES_MAX_LENGTH => GetString(nameof(NOTES_MAX_LENGTH));
     public static string PAYMENT_METHOD_INVALID => GetString(nameof(PAYMENT_METHOD_INVALID));
     public static string PAYMENT_METHOD_REQUIRED => GetString(nameof(PAYMENT_METHOD_REQUIRED));

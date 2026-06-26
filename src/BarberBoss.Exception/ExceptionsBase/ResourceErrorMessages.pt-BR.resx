@@ -165,6 +165,9 @@
   <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
     <value>Despesa não encontrada.</value>
   </data>
+  <data name="INVALID_LOGIN" xml:space="preserve">
+    <value>E-mail ou senha inválidos.</value>
+  </data>
   <data name="NOTES_MAX_LENGTH" xml:space="preserve">
     <value>As observações devem ter no máximo 500 caracteres.</value>
   </data>
