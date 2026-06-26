@@ -1,11 +1,65 @@
 using BarberBoss.Application.UseCases.User.Register;
-using BarberBoss.Communication.Requests.User;
 using BarberBoss.Exception;
+using Validator.Tests.Support.Builders;
 
 namespace Validator.Tests.UseCases.User.Register;
 
 public class RegisterUserValidatorTest
 {
+    [Fact]
+    public void Validate_ValidRequest_ReturnsValid()
+    {
+        // Arrange
+        var request = new RequestRegisteredUserJsonBuilder().Build();
+        var validator = new RegisterUserValidator();
+
+        // Act
+        var result = validator.Validate(request);
+
+        // Assert
+        Assert.True(result.IsValid);
+    }
+
+    [Theory]
+    [InlineData("", "USER_NAME_REQUIRED")]
+    [InlineData("A", "USER_NAME_LENGTH")]
+    public void Validate_InvalidName_ReturnsExpectedMessage(string name, string expectedResourceKey)
+    {
+        // Arrange
+        var request = new RequestRegisteredUserJsonBuilder()
+            .WithName(name)
+            .Build();
+        var validator = new RegisterUserValidator();
+        var expectedMessage = GetExpectedMessage(expectedResourceKey);
+
+        // Act
+        var result = validator.Validate(request);
+
+        // Assert
+        Assert.False(result.IsValid);
+        Assert.Contains(result.Errors, error => error.ErrorMessage == expectedMessage);
+    }
+
+    [Theory]
+    [InlineData("", "EMAIL_REQUIRED")]
+    [InlineData("invalid-email", "EMAIL_INVALID")]
+    public void Validate_InvalidEmail_ReturnsExpectedMessage(string email, string expectedResourceKey)
+    {
+        // Arrange
+        var request = new RequestRegisteredUserJsonBuilder()
+            .WithEmail(email)
+            .Build();
+        var validator = new RegisterUserValidator();
+        var expectedMessage = GetExpectedMessage(expectedResourceKey);
+
+        // Act
+        var result = validator.Validate(request);
+
+        // Assert
+        Assert.False(result.IsValid);
+        Assert.Contains(result.Errors, error => error.ErrorMessage == expectedMessage);
+    }
+
     [Theory]
     [InlineData("", "PASSWORD_REQUIRED")]
     [InlineData("A1!", "PASSWORD_MIN_LENGTH")]
@@ -15,17 +69,17 @@ public class RegisterUserValidatorTest
     [InlineData("Abc123", "PASSWORD_SPECIAL_CHARACTER")]
     public void Validate_InvalidPassword_ReturnsExpectedMessage(string password, string expectedResourceKey)
     {
-        var request = new RequestRegisteredUserJson
-        {
-            Name = "Rafael",
-            Email = "rafael@email.com",
-            Password = password
-        };
+        // Arrange
+        var request = new RequestRegisteredUserJsonBuilder()
+            .WithPassword(password)
+            .Build();
         var validator = new RegisterUserValidator();
         var expectedMessage = GetExpectedMessage(expectedResourceKey);
 
+        // Act
         var result = validator.Validate(request);
 
+        // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, error => error.ErrorMessage == expectedMessage);
         Assert.DoesNotContain(result.Errors, error => error.ErrorMessage == "ErrorMessage");
@@ -35,6 +89,10 @@ public class RegisterUserValidatorTest
     {
         return resourceKey switch
         {
+            "USER_NAME_REQUIRED" => ResourceErrorMessages.USER_NAME_REQUIRED,
+            "USER_NAME_LENGTH" => ResourceErrorMessages.USER_NAME_LENGTH,
+            "EMAIL_REQUIRED" => ResourceErrorMessages.EMAIL_REQUIRED,
+            "EMAIL_INVALID" => ResourceErrorMessages.EMAIL_INVALID,
             "PASSWORD_REQUIRED" => ResourceErrorMessages.PASSWORD_REQUIRED,
             "PASSWORD_MIN_LENGTH" => ResourceErrorMessages.PASSWORD_MIN_LENGTH,
             "PASSWORD_UPPERCASE_LETTER" => ResourceErrorMessages.PASSWORD_UPPERCASE_LETTER,
