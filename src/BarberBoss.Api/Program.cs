@@ -1,5 +1,7 @@
 using BarberBoss.Api.Filters;
+using BarberBoss.Api.Token;
 using BarberBoss.Application;
+using BarberBoss.Domain.Security.Tokens;
 using BarberBoss.Infrastructure;
 using BarberBoss.Infrastructure.Migrations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -49,6 +51,10 @@ builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)))
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
+
+builder.Services.AddScoped<ITokenProvider, HttpContextTokenValue>();
+
+builder.Services.AddHttpContextAccessor();
 
 var signinKey = builder.Configuration["Settings:Jwt:SigninKey"];
 
