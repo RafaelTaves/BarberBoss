@@ -4,6 +4,7 @@ using BarberBoss.Communication.Requests.User;
 using BarberBoss.Communication.Responses.Billing;
 using BarberBoss.Communication.Responses.User;
 using BarberBoss.Domain.Entities;
+using BarberBoss.Domain.Enums;
 
 namespace BarberBoss.Application.AutoMapper;
 
@@ -17,7 +18,11 @@ public class AutoMapping : Profile
 
     private void RequestToEntity()
     {
-        CreateMap<RequestBillingJson, Billing>();
+        CreateMap<RequestBillingJson, Billing>()
+            .ForMember(billing => billing.PaymentMethod, config => config.MapFrom(request =>
+                Enum.Parse<BillingPaymentMethod>(request.PaymentMethod, true)))
+            .ForMember(billing => billing.Status, config => config.MapFrom(request =>
+                Enum.Parse<BillingStatus>(request.Status, true)));
         CreateMap<RequestRegisteredUserJson, User>()
             .ForMember(user => user.PasswordHash, config => config.Ignore());
     }

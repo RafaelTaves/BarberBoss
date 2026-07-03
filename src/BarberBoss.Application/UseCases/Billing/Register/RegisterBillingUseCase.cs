@@ -37,6 +37,7 @@ public class RegisterBillingUseCase : IRegisterBillingUseCase
 
         var billing = _mapper.Map<BillingEntity>(request);
         billing.UserId = loggedUser.Id;
+        billing.CreatedAt = DateTime.UtcNow;
 
         await _repository.Add(billing);
 

@@ -10,5 +10,4 @@ public class RequestBillingJson
     public string PaymentMethod { get; set; } = string.Empty;
     public string Status { get; set; } = string.Empty;
     public string Notes { get; set; } = string.Empty;
-    public DateTime CreatedAt { get; set; }
 }

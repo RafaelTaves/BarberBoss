@@ -13,8 +13,7 @@ public class RequestBillingJsonBuilder
         Amount = 50,
         PaymentMethod = "Pix",
         Status = "Pago",
-        Notes = "Cliente recorrente",
-        CreatedAt = DateTime.UtcNow
+        Notes = "Cliente recorrente"
     };
 
     public RequestBillingJsonBuilder WithInvalidBarberName()

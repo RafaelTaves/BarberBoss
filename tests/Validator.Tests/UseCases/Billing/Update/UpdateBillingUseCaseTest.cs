@@ -1,4 +1,5 @@
 using BarberBoss.Application.UseCases.Billing.Update;
+using BarberBoss.Domain.Enums;
 using BarberBoss.Exception.ExceptionsBase;
 using Validator.Tests.Support.AutoMapper;
 using Validator.Tests.Support.Builders;
@@ -33,6 +34,8 @@ public class UpdateBillingUseCaseTest
         Assert.NotNull(repository.UpdatedBilling);
         Assert.Equal(request.ServiceName, repository.UpdatedBilling.ServiceName);
         Assert.Equal(request.Amount, repository.UpdatedBilling.Amount);
+        Assert.Equal(BillingPaymentMethod.Pix, repository.UpdatedBilling.PaymentMethod);
+        Assert.Equal(BillingStatus.Pago, repository.UpdatedBilling.Status);
         Assert.Equal(1, unitOfWork.CommitsCount);
     }
 
