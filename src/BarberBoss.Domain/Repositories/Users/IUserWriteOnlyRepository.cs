@@ -5,4 +5,6 @@ namespace BarberBoss.Domain.Repositories.Users;
 public interface IUserWriteOnlyRepository
 {
     Task Add(User user);
+
+    Task<bool> Delete(Guid id);
 }

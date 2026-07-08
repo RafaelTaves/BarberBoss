@@ -42,6 +42,7 @@ public static class ResourceErrorMessages
     public static string SERVICE_NAME_REQUIRED => GetString(nameof(SERVICE_NAME_REQUIRED));
     public static string TITLE_REQUIRED => GetString(nameof(TITLE_REQUIRED));
     public static string UNKNOWN_ERROR => GetString(nameof(UNKNOWN_ERROR));
+    public static string USER_NOT_FOUND => GetString(nameof(USER_NOT_FOUND));
     public static string USER_NAME_LENGTH => GetString(nameof(USER_NAME_LENGTH));
     public static string USER_NAME_REQUIRED => GetString(nameof(USER_NAME_REQUIRED));
 

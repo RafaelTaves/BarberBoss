@@ -5,6 +5,7 @@ using BarberBoss.Application.UseCases.Billing.GetById;
 using BarberBoss.Application.UseCases.Billing.Register;
 using BarberBoss.Application.UseCases.Billing.Update;
 using BarberBoss.Application.UseCases.Login;
+using BarberBoss.Application.UseCases.User.Delete;
 using BarberBoss.Application.UseCases.User.Get;
 using BarberBoss.Application.UseCases.User.Register;
 using BarberBoss.Application.UseCases.User.Update;
@@ -32,6 +33,7 @@ public static class DependencyInjectionExtension
         services.AddScoped<IGetAllBillingsUseCase, GetAllBillingsJson>();
         services.AddScoped<IGetBillingByIdUseCase, GetBillingByIdUseCase>();
         services.AddScoped<IDeleteBillingUseCase, DeleteBillingUseCase>();
+        services.AddScoped<IDeleteUserUseCase, DeleteUserUseCase>();
         services.AddScoped<IGetUserUseCase, GetUserUseCase>();
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
         services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
