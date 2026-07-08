@@ -32,6 +32,7 @@ public class AutoMapping : Profile
         CreateMap<Billing, ResponseBillingJson>();
         CreateMap<Billing, ResponseRegisteredBillingJson>();
         CreateMap<Billing, ResponseShortBillingJson>();
+        CreateMap<User, ResponseUserJson>();
         CreateMap<User, ResponseRegisteredUserJson>()
             .ForMember(response => response.Token, config => config.MapFrom((_, _, _, context) =>
                 context.TryGetItems(out var items) && items.TryGetValue("Token", out var token)
