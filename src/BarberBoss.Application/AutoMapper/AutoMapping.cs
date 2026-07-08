@@ -25,6 +25,7 @@ public class AutoMapping : Profile
                 Enum.Parse<BillingStatus>(request.Status, true)));
         CreateMap<RequestRegisteredUserJson, User>()
             .ForMember(user => user.PasswordHash, config => config.Ignore());
+        CreateMap<RequestUpdateUserJson, User>();
     }
 
     private void EntityToResponse()

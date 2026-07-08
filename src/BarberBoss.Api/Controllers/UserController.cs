@@ -1,5 +1,6 @@
 using BarberBoss.Application.UseCases.User.Get;
 using BarberBoss.Application.UseCases.User.Register;
+using BarberBoss.Application.UseCases.User.Update;
 using BarberBoss.Communication.Requests.User;
 using BarberBoss.Communication.Responses;
 using BarberBoss.Communication.Responses.User;
@@ -33,5 +34,17 @@ public class UserController : ControllerBase
         var response = await useCase.Execute(request);
 
         return Created(string.Empty, response);
+    }
+
+    [HttpPut]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> UpdateUser(
+        [FromServices] IUpdateUserUseCase useCase,
+        [FromBody] RequestUpdateUserJson request)
+    {
+        await useCase.Execute(request);
+
+        return NoContent();
     }
 }
