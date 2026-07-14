@@ -59,4 +59,11 @@ internal class BillingRepository : IBillingReadOnlyRepository, IBillingWriteOnly
             .OrderBy(billing => billing.Date)
             .ToListAsync();
     }
+
+    public async Task DeleteAllByUserId(Guid userId)
+    {
+        var billings = await _dbContext.Billings.Where(billing => billing.UserId == userId).ToListAsync();
+
+        _dbContext.Billings.RemoveRange(billings);
+    }
 }

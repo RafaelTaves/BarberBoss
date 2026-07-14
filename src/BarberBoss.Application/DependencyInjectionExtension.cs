@@ -34,6 +34,7 @@ public static class DependencyInjectionExtension
         services.AddScoped<IGetBillingByIdUseCase, GetBillingByIdUseCase>();
         services.AddScoped<IDeleteBillingUseCase, DeleteBillingUseCase>();
         services.AddScoped<IDeleteUserUseCase, DeleteUserUseCase>();
+        services.AddScoped<IDeleteUserByAdminUseCase, DeleteUserByAdminUseCase>();
         services.AddScoped<IGetUserUseCase, GetUserUseCase>();
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
         services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();

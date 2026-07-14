@@ -13,6 +13,7 @@ public class BillingWriteOnlyRepositoryDouble : IBillingWriteOnlyRepository
 
     public BarberBoss.Domain.Entities.Billing? AddedBilling { get; private set; }
     public Guid? DeletedId { get; private set; }
+    public Guid? DeletedAllByUserId { get; private set; }
 
     public Task Add(BarberBoss.Domain.Entities.Billing billing)
     {
@@ -24,5 +25,11 @@ public class BillingWriteOnlyRepositoryDouble : IBillingWriteOnlyRepository
     {
         DeletedId = id;
         return Task.FromResult(_deleteResult);
+    }
+
+    public Task DeleteAllByUserId(Guid userId)
+    {
+        DeletedAllByUserId = userId;
+        return Task.CompletedTask;
     }
 }
